@@ -20,6 +20,7 @@ builder.Services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAu
 // These next three services (+ two app call below) were added to support the UploadsController
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
+
 builder.Services.AddOutputCache();
 
 builder.Services.AddAuthentication(options =>
