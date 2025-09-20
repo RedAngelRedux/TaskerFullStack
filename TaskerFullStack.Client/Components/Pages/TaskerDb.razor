@@ -8,7 +8,7 @@
 
 @attribute [Authorize]
 
-@inject IJSRuntime JS;
+@* @inject IJSRuntime JS; *@
 @inject HttpClient Http;
 
 <div class="d-flex align-items.center justify-content-center mt-5">
@@ -51,7 +51,7 @@
             //await JS.InvokeVoidAsync("console.log", "Tasker component initialized.");
             await inputText!.Element!.Value.FocusAsync(); // Focus the input field after the component has rendered
             await LoadListAsync(); // Load the task list from local storage when the component is initialized
-            StateHasChanged();
+            //StateHasChanged();
         }
     }
 
@@ -59,18 +59,16 @@
     {
         try
         {
-            // Load the task list from local storage when the component is initialized
-            string? taskerItemsJson = await JS.InvokeAsync<string>("localStorage.getItem", "taskerList") ?? "[]";
-            ;
-            if (!string.IsNullOrEmpty(taskerItemsJson))
-            {
-                taskerItems = JsonSerializer.Deserialize<List<TaskerItem>>(taskerItemsJson) ?? [];
-            }
+            HttpResponseMessage response = await Http.GetAsync("/api/TaskerItem");
+            response.EnsureSuccessStatusCode();
+
+            // convert the json to a list of taskerItems
+            taskerItems = await response.Content.ReadFromJsonAsync<List<TaskerItem>>() ?? [];
+            StateHasChanged();
         }
         catch (Exception)
         {
-            taskerItems = [];
-            await SaveListAsync(); // Ensure we save an empty list if loading fails
+            taskerItems = new();
         }
     }
 
@@ -86,6 +84,9 @@
 
                 // reset the form
                 taskerItem = new();
+
+                // Display updated list of tasks
+                await LoadListAsync();
             }
             catch
             {
@@ -100,15 +101,15 @@
 
     private async Task SaveListAsync()
     {
-        string? taskerItemsJson = JsonSerializer.Serialize(taskerItems);
-        await JS.InvokeVoidAsync("localStorage.setItem", "taskerList", taskerItemsJson); 
+        //string? taskerItemsJson = JsonSerializer.Serialize(taskerItems);
+        //await JS.InvokeVoidAsync("localStorage.setItem", "taskerList", taskerItemsJson); 
         await inputText!.Element!.Value.FocusAsync();
 
     }
 
     private async Task DeleteTask(TaskerItem item)
     {
-        taskerItems.Remove(item);
+        //taskerItems.Remove(item);
         await SaveListAsync(); // Save the updated list to local storage
     }
 
