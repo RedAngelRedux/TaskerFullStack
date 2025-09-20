@@ -48,5 +48,25 @@ public class TaskerItemController(
         return items;
     }
 
+    // put:  api/TaskerItems/5
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutDbTaskerItem([FromRoute] Guid id, [FromBody] TaskerItem taskerItem)
+    {
+        // Validate id; must match taskerItem & exists in Db
+        if (id != taskerItem.Id) return BadRequest();
+        DbTaskerItem? dbTaskerItem = await _db.TaskerItems.FirstOrDefaultAsync(t => t.Id == id && t.UserId == CurrentUserId);
+        if(dbTaskerItem == null) return NotFound();
+
+        // Update the Record
+        dbTaskerItem.Name = taskerItem.Name;
+        dbTaskerItem.IsComplete = taskerItem.IsComplete;
+
+        _db.Update(dbTaskerItem);
+        await _db.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+
     private string CurrentUserId => _userManager.GetUserId(User) ?? string.Empty;
 }

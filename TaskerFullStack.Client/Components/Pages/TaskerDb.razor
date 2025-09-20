@@ -116,6 +116,19 @@
 
     private async Task CompleteTask(TaskerItem item)
     {
+        try
+        {
+            string route = $"/api/TaskerItem/{item.Id}";
+
+            HttpResponseMessage response = await Http.PutAsJsonAsync(route, item);
+            response.EnsureSuccessStatusCode();
+
+            await LoadListAsync();
+        }
+        catch
+        {
+            throw;
+        }
         await SaveListAsync(); // Save the updated list to local storage
     }
 }
