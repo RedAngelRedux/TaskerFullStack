@@ -1,0 +1,145 @@
+﻿@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<nav class="navbar navbar-expand-lg navStyle" data-bs-theme="dark">
+    <div class="container-xxl">
+
+        <a href="/" class="me-3">
+            <img src="/img/brand/MagicCodeSquareLogo.png" height="40" />
+        </a>
+
+        <button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu Links -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                        <i class="bi bi-house" />
+                        <span>Home</span>
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/counter">
+                        <i class="bi bi-stopwatch" />
+                        <span>Counter</span>
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/weather">
+                        <i class="bi bi-cloud" />
+                        <span>Weather</span>
+                    </NavLink>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-stack"></i>
+                        <span>Dropdown</span>
+                    </a>
+                    <ul class="dropdown-menu text-nowrap px-2 m-2" id="menuDropdown">
+                        <li class="dropdown-item">
+                            <NavLink class="nav-link" href="/weather">
+                                <i class="bi bi-person" />
+                                <span>Dallas</span>
+                            </NavLink>
+                        </li>
+                        <li class="dropdown-item">
+                            <NavLink class="nav-link" href="/weather">
+                                <i class="bi bi-archive" />
+                                <span>Tampa Bay</span>
+                            </NavLink>
+                        </li>
+                        <li class="dropdown-item">
+                            <NavLink class="nav-link" href="/weather">
+                                <i class="bi bi-box-arrow-in-right" />
+                                <span>Salton City</span>
+                            </NavLink>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/themes">
+                        <i class="bi bi-palette" />
+                        <span>Themes</span>
+                    </NavLink>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-stack"></i>
+                        <span>Account</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-nowrap px-2 m-2">
+                        <AuthorizeView>
+                            <Authorized>
+                                <div class="nav-item px-3">
+                                    <NavLink class="nav-link" href="Account/Manage">
+                                        <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
+                                    </NavLink>
+                                </div>
+                                <div class="nav-item px-3">
+                                    <form action="Account/Logout" method="post">
+                                        <AntiforgeryToken />
+                                        <input type="hidden" name="ReturnUrl" value="" />
+                                        <button type="submit" class="nav-link">
+                                            <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout
+                                        </button>
+                                    </form>
+                                </div>
+                            </Authorized>
+                            <NotAuthorized>
+                                <div class="nav-item px-3">
+                                    <NavLink class="nav-link" href="Account/Register">
+                                        <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register
+                                    </NavLink>
+                                </div>
+                                <div class="nav-item px-3">
+                                    <NavLink class="nav-link" href="Account/Login">
+                                        <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> Login
+                                    </NavLink>
+                                </div>
+                            </NotAuthorized>
+                        </AuthorizeView>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@code {
+
+    private IDisposable? locationChangedHandler;
+
+    protected override void OnInitialized()
+    {
+        // Note:  
+        // RegisteringLocationChangingHandler (.NET 8+) is used to collapse the menu when navigating to a new page.
+        // This is useful for mobile devices where the menu should close after a selection.
+        // .NET 7 and earlier would use Navigation.LocationChanged event.
+        locationChangedHandler = Navigation.RegisterLocationChangingHandler(OnLocationChanging);
+    }
+
+    public void Dispose()
+    {
+        locationChangedHandler?.Dispose();
+    }
+
+    // Alternativly, I could have set onclick="CollapseMenu" on the button element.
+    // This method is more comprehensive and allows for more control.
+    private async ValueTask OnLocationChanging(LocationChangingContext context)
+    {
+        await CollapseMenu();
+    }
+
+    private async Task CollapseMenu()
+    {
+        await JS.InvokeVoidAsync("collapseNavbar");
+    }
+}

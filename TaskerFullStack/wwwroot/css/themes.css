@@ -1,0 +1,677 @@
+﻿:root {
+    --cf-theme-core: var(--cf-code-magic-core);
+    /* app background */
+    --cf-theme-100: var(--cf-code-magic-100);
+    /* subtle background */
+    --cf-theme-150: var(--cf-code-magic-150);
+    /* UI element background */
+    --cf-theme-200: var(--cf-code-magic-200);
+    /* hovered UI background */
+    --cf-theme-300: var(--cf-code-magic-300);
+    /* active UI */
+    --cf-theme-400: var(--cf-code-magic-400);
+    /* selected UI */
+    --cf-theme-500: var(--cf-code-magic-500);
+    /* subtle borders and spearators */
+    --cf-theme-600: var(--cf-code-magic-600);
+    /* element border / focus rings */
+    --cf-theme-700: var(--cf-code-magic-700);
+    /* hovered border  */
+    --cf-theme-800: var(--cf-code-magic-800);
+    /* hovered dark backgrounds */
+    --cf-theme-850: var(--cf-code-magic-850);
+    /* dark backgrounds */
+    --cf-theme-900: var(--cf-code-magic-900);
+    /* descriptive colors*/
+    --cf-theme-light: var(--cf-code-magic-100);
+    --cf-theme-dark: var(--cf-code-magic-850);
+    --cf-theme-title: var(--cf-code-magic-600);
+    /* the two primary fonts */
+    --cf-theme-title-font: var(--cf-code-magic-title-font);
+    --cf-theme-body-font: var(--cf-code-magic-body-font);
+    /* #region code-magic */
+    --cf-code-magic-core: #f2c864; /* yellow accent */
+    --cf-code-magic-100: hsl(192, 77%, 79%); /* turqoise */
+    --cf-code-magic-150: hsl(192, 77%, 74%);
+    --cf-code-magic-200: #87bbd7;
+    --cf-code-magic-300: hsl(192, 77%, 69%);
+    --cf-code-magic-400: #f2c864;
+    --cf-code-magic-500: hsl(192, 77%, 49%);
+    --cf-code-magic-600: hsl(192, 77%, 39%);
+    --cf-code-magic-700: hsl(192, 77%, 29%);
+    --cf-code-magic-800: hsl(192, 77%, 19%);
+    --cf-code-magic-850: hsl(192, 77%, 15%);
+    --cf-code-magic-900: hsl(192, 77%, 9%);
+    --cf-code-magic-title-font: 'Bebas Neue', sans-serif;
+    --cf-code-magic-body-font: 'Montserrat', sans-serif;
+    /* #endregion code-magic */
+    /* #region blue */
+    --cf-blue-core: hsl(216, 98%, 52%);
+    --cf-blue-100: hsl(216, 50%, 91%);
+    --cf-blue-150: hsl(216, 50%, 86%);
+    --cf-blue-200: hsl(216, 50%, 81%);
+    --cf-blue-300: hsl(216, 50%, 71%);
+    --cf-blue-400: hsl(216, 50%, 61%);
+    --cf-blue-500: hsl(216, 50%, 51%);
+    --cf-blue-600: hsl(216, 50%, 41%);
+    --cf-blue-700: hsl(216, 50%, 31%);
+    --cf-blue-800: hsl(216, 50%, 21%);
+    --cf-blue-850: hsl(216, 50%, 16%);
+    --cf-blue-900: hsl(216, 50%, 11%);
+    --cf-blue-title-font: 'Bebas Neue', sans-serif;
+    --cf-blue-body-font: 'Montserrat', sans-serif;
+    /* #endregion blue */
+    /* #region indigo */
+    --cf-indigo-core: #6610f2;
+    --cf-indigo-100: hsl(263, 88%, 90%);
+    --cf-indigo-150: hsl(263, 88%, 85%);
+    --cf-indigo-200: hsl(263, 88%, 80%);
+    --cf-indigo-300: hsl(263, 88%, 70%);
+    --cf-indigo-400: hsl(263, 88%, 60%);
+    --cf-indigo-500: hsl(263, 88%, 50%);
+    --cf-indigo-600: hsl(263, 88%, 40%);
+    --cf-indigo-700: hsl(263, 88%, 30%);
+    --cf-indigo-800: hsl(263, 88%, 20%);
+    --cf-indigo-850: hsl(263, 88%, 15%);
+    --cf-indigo-900: hsl(263, 88%, 10%);
+    --cf-indigo-title-font: 'Bebas Neue', sans-serif;
+    --cf-indigo-body-font: 'Montserrat', sans-serif;
+    /* #endregion indigo */
+    /* #region purple */
+    --cf-purple-core: #6f42c1;
+    --cf-purple-100: hsl(261, 52%, 90%);
+    --cf-purple-150: hsl(261, 52%, 85%);
+    --cf-purple-200: hsl(261, 52%, 80%);
+    --cf-purple-300: hsl(261, 52%, 70%);
+    --cf-purple-400: hsl(261, 52%, 60%);
+    --cf-purple-500: hsl(261, 52%, 50%);
+    --cf-purple-600: hsl(261, 52%, 40%);
+    --cf-purple-700: hsl(261, 52%, 30%);
+    --cf-purple-800: hsl(261, 52%, 20%);
+    --cf-purple-850: hsl(261, 52%, 15%);
+    --cf-purple-900: hsl(261, 52%, 10%);
+    --cf-purple-title-font: 'Bebas Neue', sans-serif;
+    --cf-purple-body-font: 'Montserrat', sans-serif;
+    /* #endregion purple */
+    /* #region pink */
+    --cf-pink-core: #d63384;
+    --cf-pink-100: hsl(331, 47%, 90%);
+    --cf-pink-150: hsl(331, 47%, 85%);
+    --cf-pink-200: hsl(331, 47%, 80%);
+    --cf-pink-300: hsl(331, 47%, 70%);
+    --cf-pink-400: hsl(331, 47%, 60%);
+    --cf-pink-500: hsl(331, 47%, 50%);
+    --cf-pink-600: hsl(331, 47%, 40%);
+    --cf-pink-700: hsl(331, 47%, 30%);
+    --cf-pink-800: hsl(331, 47%, 20%);
+    --cf-pink-850: hsl(331, 47%, 15%);
+    --cf-pink-900: hsl(331, 47%, 10%);
+    --cf-pink-title-font: 'Bebas Neue', sans-serif;
+    --cf-pink-body-font: 'Montserrat', sans-serif;
+    /* #endregion pink */
+    /* #region red */
+    --cf-red-core: #dc3545;
+    --cf-red-100: hsl(355, 70%, 91%);
+    --cf-red-150: hsl(355, 70%, 86%);
+    --cf-red-200: hsl(355, 70%, 81%);
+    --cf-red-300: hsl(355, 70%, 71%);
+    --cf-red-400: hsl(355, 70%, 61%);
+    --cf-red-500: hsl(355, 70%, 51%);
+    --cf-red-600: hsl(355, 70%, 41%);
+    --cf-red-700: hsl(355, 70%, 31%);
+    --cf-red-800: hsl(355, 70%, 21%);
+    --cf-red-850: hsl(355, 70%, 16%);
+    --cf-red-900: hsl(355, 70%, 11%);
+    --cf-red-title-font: 'Bebas Neue', sans-serif;
+    --cf-red-body-font: 'Montserrat', sans-serif;
+    /* #endregion red */
+    /* #region orange */
+    --cf-orange-core: #fd7e14;
+    --cf-orange-100: hsl(19, 50%, 91%);
+    --cf-orange-150: hsl(19, 50%, 86%);
+    --cf-orange-200: hsl(19, 50%, 81%);
+    --cf-orange-300: hsl(19, 50%, 71%);
+    --cf-orange-400: hsl(19, 50%, 61%);
+    --cf-orange-500: hsl(19, 50%, 51%);
+    --cf-orange-600: hsl(19, 50%, 41%);
+    --cf-orange-700: hsl(19, 50%, 31%);
+    --cf-orange-800: hsl(19, 50%, 21%);
+    --cf-orange-850: hsl(19, 50%, 16%);
+    --cf-orange-900: hsl(19, 50%, 11%);
+    --cf-orange-title-font: 'Bebas Neue', sans-serif;
+    --cf-orange-body-font: 'Montserrat', sans-serif;
+    /* #endregion orange */
+    /* #region yellow */
+    --cf-yellow-core: #ffc107;
+    --cf-yellow-100: hsl(46, 70%, 90%);
+    --cf-yellow-150: hsl(46, 70%, 85%);
+    --cf-yellow-200: hsl(46, 70%, 80%);
+    --cf-yellow-300: hsl(46, 70%, 70%);
+    --cf-yellow-400: hsl(46, 70%, 60%);
+    --cf-yellow-500: hsl(46, 70%, 50%);
+    --cf-yellow-600: hsl(46, 70%, 40%);
+    --cf-yellow-700: hsl(46, 70%, 30%);
+    --cf-yellow-800: hsl(46, 70%, 20%);
+    --cf-yellow-850: hsl(46, 70%, 15%);
+    --cf-yellow-900: hsl(46, 70%, 10%);
+    --cf-yellow-title-font: 'Bebas Neue', sans-serif;
+    --cf-yellow-body-font: 'Montserrat', sans-serif;
+    /* #endregion yellow */
+    /* #region green */
+    --cf-green-core: #198754;
+    --cf-green-100: hsl(152, 38%, 95%);
+    --cf-green-150: hsl(152, 38%, 90%);
+    --cf-green-200: hsl(152, 38%, 85%);
+    --cf-green-300: hsl(152, 38%, 75%);
+    --cf-green-400: hsl(152, 38%, 65%);
+    --cf-green-500: hsl(152, 38%, 55%);
+    --cf-green-600: hsl(152, 38%, 45%);
+    --cf-green-700: hsl(152, 38%, 35%);
+    --cf-green-800: hsl(152, 38%, 25%);
+    --cf-green-850: hsl(152, 38%, 20%);
+    --cf-green-900: hsl(152, 38%, 15%);
+    --cf-green-title-font: 'Bebas Neue', sans-serif;
+    --cf-green-body-font: 'Montserrat', sans-serif;
+    /* #endregion green */
+    /* #region teal */
+    --cf-teal-core: #20c997;
+    --cf-teal-100: hsl(162, 60%, 89%);
+    --cf-teal-150: hsl(162, 60%, 84%);
+    --cf-teal-200: hsl(162, 60%, 79%);
+    --cf-teal-300: hsl(162, 60%, 69%);
+    --cf-teal-400: hsl(162, 60%, 59%);
+    --cf-teal-500: hsl(162, 60%, 49%);
+    --cf-teal-600: hsl(162, 60%, 39%);
+    --cf-teal-700: hsl(162, 60%, 29%);
+    --cf-teal-800: hsl(162, 60%, 19%);
+    --cf-teal-850: hsl(162, 60%, 14%);
+    --cf-teal-900: hsl(162, 60%, 9%);
+    --cf-teal-title-font: 'Bebas Neue', sans-serif;
+    --cf-teal-body-font: 'Montserrat', sans-serif;
+    /* #endregion teal */
+    /* #region cyan */
+    --cf-cyan-core: #0dcaf0;
+    --cf-cyan-100: hsl(191, 60%, 90%);
+    --cf-cyan-150: hsl(191, 60%, 85%);
+    --cf-cyan-200: hsl(191, 60%, 80%);
+    --cf-cyan-300: hsl(191, 60%, 70%);
+    --cf-cyan-400: hsl(191, 60%, 60%);
+    --cf-cyan-500: hsl(191, 60%, 50%);
+    --cf-cyan-600: hsl(191, 60%, 40%);
+    --cf-cyan-700: hsl(191, 60%, 30%);
+    --cf-cyan-800: hsl(191, 60%, 20%);
+    --cf-cyan-850: hsl(191, 60%, 15%);
+    --cf-cyan-900: hsl(191, 60%, 10%);
+    --cf-cyan-title-font: 'Bebas Neue', sans-serif;
+    --cf-cyan-body-font: 'Montserrat', sans-serif;
+    /* #endregion cyan */
+    /* #region gray */
+    --cf-gray-core: #adb5bd;
+    --cf-gray-100: hsl(210, 17%, 98%);
+    --cf-gray-150: hsl(210, 17%, 93%);
+    --cf-gray-200: hsl(210, 17%, 88%);
+    --cf-gray-300: hsl(210, 17%, 78%);
+    --cf-gray-400: hsl(210, 17%, 68%);
+    --cf-gray-500: hsl(210, 17%, 58%);
+    --cf-gray-600: hsl(210, 17%, 48%);
+    --cf-gray-700: hsl(210, 17%, 38%);
+    --cf-gray-800: hsl(210, 17%, 28%);
+    --cf-gray-850: hsl(210, 17%, 23%);
+    --cf-gray-900: hsl(210, 17%, 18%);
+    --cf-gray-title-font: 'Bebas Neue', sans-serif;
+    --cf-gray-body-font: 'Montserrat', sans-serif;
+    /* #endregion gray */
+    /* #region modern-trust */
+    --cf-modern-trust-core: #1A2B4C;
+    --cf-modern-trust-100: #F4F6F8;
+    --cf-modern-trust-150: #E6ECF1;
+    --cf-modern-trust-200: #D0D8E0;
+    --cf-modern-trust-300: #B8C4D4;
+    --cf-modern-trust-400: #A3E4D7;
+    --cf-modern-trust-500: #6FCFC1;
+    --cf-modern-trust-600: #C0C9D2;
+    --cf-modern-trust-700: #8FA3B8;
+    --cf-modern-trust-800: #5C7A99;
+    --cf-modern-trust-850: #2F4A6A;
+    --cf-modern-trust-900: #1A2B4C;
+    --cf-modern-trust-title-font: 'Bebas Neue', sans-serif;
+    --cf-modern-trust-body-font: 'Montserrat', sans-serif;
+    /* #endregion modern-trust */
+    /* #region tech-sleek */
+    --cf-tech-sleek-core: #2E2E2E;
+    --cf-tech-sleek-100: #FAFAFA;
+    --cf-tech-sleek-150: #F0F0F0;
+    --cf-tech-sleek-200: #D9D9D9;
+    --cf-tech-sleek-300: #BFBFBF;
+    --cf-tech-sleek-400: #00BFFF;
+    --cf-tech-sleek-500: #009ACD;
+    --cf-tech-sleek-600: #A0A0A0;
+    --cf-tech-sleek-700: #707070;
+    --cf-tech-sleek-800: #505050;
+    --cf-tech-sleek-850: #3A3A3A;
+    --cf-tech-sleek-900: #2E2E2E;
+    --cf-tech-sleek-title-font: 'Bebas Neue', sans-serif;
+    --cf-tech-sleek-body-font: 'Montserrat', sans-serif;
+    /* #endregion tech-sleek */
+    /* #region financial-clarity */
+    --cf-financial-clarity-core: #228B22;
+    --cf-financial-clarity-100: #FFFFF0;
+    --cf-financial-clarity-150: #F5F5DC;
+    --cf-financial-clarity-200: #E6E6D6;
+    --cf-financial-clarity-300: #D4D4B4;
+    --cf-financial-clarity-400: #FFD700;
+    --cf-financial-clarity-500: #E6C200;
+    --cf-financial-clarity-600: #B0B08A;
+    --cf-financial-clarity-700: #708090;
+    --cf-financial-clarity-800: #556B2F;
+    --cf-financial-clarity-850: #2E4B1F;
+    --cf-financial-clarity-900: #1A3314;
+    --cf-financial-clarity-title-font: 'Bebas Neue', sans-serif;
+    --cf-financial-clarity-body-font: 'Montserrat', sans-serif;
+    /* #endregion financial-clarity */
+    /* #region neon-noir*/
+    --cf-neon-noir-core: hsl(275, 86%, 36%); /*#6A0DAD;*/
+    --cf-neon-noir-100: hsl(0, 0%, 88%); /*#E0E0E0;*/
+    --cf-neon-noir-150: hsl(0, 0%, 75%); /* #E0E0E0;*/
+    --cf-neon-noir-200: hsl(42, 84.5%, 67.1%); /*#f2c864;*/
+    --cf-neon-noir-300: hsl(42, 84.5%, 57.1%); /*#f2c864;*/
+    --cf-neon-noir-400: hsl(42, 84.5%, 47.1%); /*#f2c864;*/
+    --cf-neon-noir-500: hsl(42, 84.5%, 37.1%); /*#f2c864;*/
+    --cf-neon-noir-600: hsl(275, 86%, 46%); /*#ffffff;*/
+    --cf-neon-noir-700: hsl(275, 86%, 36%); /*#ffffff;*/
+    --cf-neon-noir-800: hsl(275, 86%, 26%); /*#ffffff;*/
+    --cf-neon-noir-850: hsl(211, 52.7%, 15.8%); /*#0D1B2A;*/
+    --cf-neon-noir-900: hsl(211, 52.7%, 10.8%); /*#0D1B2A;*/
+    --cf-neon-noir-title-font: 'Orbitron', sans-serif;
+    --cf-neon-noir-body-font: 'Exo 2', sans-serif;
+    /* #endregion neon-noir*/
+}
+
+[data-cf-theme="code-magic"] {
+    --cf-theme-core: var(--cf-code-magic-core);
+    --cf-theme-100: var(--cf-code-magic-100);
+    --cf-theme-150: var(--cf-code-magic-150);
+    --cf-theme-200: var(--cf-code-magic-200);
+    --cf-theme-300: var(--cf-code-magic-300);
+    --cf-theme-400: var(--cf-code-magic-400);
+    --cf-theme-500: var(--cf-code-magic-500);
+    --cf-theme-600: var(--cf-code-magic-600);
+    --cf-theme-700: var(--cf-code-magic-700);
+    --cf-theme-800: var(--cf-code-magic-800);
+    --cf-theme-850: var(--cf-code-magic-850);
+    --cf-theme-900: var(--cf-code-magic-900);
+    --cf-theme-light: var(--cf-code-magic-100);
+    --cf-theme-dark: var(--cf-code-magic-850);
+    --cf-theme-title: var(--cf-code-magic-600);
+    --cf-theme-title-font: var(--cf-code-magic-title-font);
+    --cf-theme-body-font: var(--cf-code-magic-body-font);
+}
+
+[data-cf-theme="blue"] {
+    --cf-theme-core: var(--cf-blue-core);
+    --cf-theme-100: var(--cf-blue-100);
+    --cf-theme-150: var(--cf-blue-150);
+    --cf-theme-200: var(--cf-blue-200);
+    --cf-theme-300: var(--cf-blue-300);
+    --cf-theme-400: var(--cf-blue-400);
+    --cf-theme-500: var(--cf-blue-500);
+    --cf-theme-600: var(--cf-blue-600);
+    --cf-theme-700: var(--cf-blue-700);
+    --cf-theme-800: var(--cf-blue-800);
+    --cf-theme-850: var(--cf-blue-850);
+    --cf-theme-900: var(--cf-blue-900);
+    --cf-theme-light: var(--cf-blue-100);
+    --cf-theme-dark: var(--cf-blue-850);
+    --cf-theme-title: var(--cf-blue-600);
+    --cf-theme-title-font: var(--cf-blue-title-font);
+    --cf-theme-body-font: var(--cf-blue-body-font);
+}
+
+[data-cf-theme="indigo"] {
+    --cf-theme-core: var(--cf-indigo-core);
+    --cf-theme-100: var(--cf-indigo-100);
+    --cf-theme-150: var(--cf-indigo-150);
+    --cf-theme-200: var(--cf-indigo-200);
+    --cf-theme-300: var(--cf-indigo-300);
+    --cf-theme-400: var(--cf-indigo-400);
+    --cf-theme-500: var(--cf-indigo-500);
+    --cf-theme-600: var(--cf-indigo-600);
+    --cf-theme-700: var(--cf-indigo-700);
+    --cf-theme-800: var(--cf-indigo-800);
+    --cf-theme-850: var(--cf-indigo-850);
+    --cf-theme-900: var(--cf-indigo-900);
+    --cf-theme-light: var(--cf-indigo-100);
+    --cf-theme-dark: var(--cf-indigo-850);
+    --cf-theme-title: var(--cf-indigo-600);
+    --cf-theme-title-font: var(--cf-indigo-title-font);
+    --cf-theme-body-font: var(--cf-indigo-body-font);
+}
+
+[data-cf-theme="purple"] {
+    --cf-theme-core: var(--cf-purple-core);
+    --cf-theme-100: var(--cf-purple-100);
+    --cf-theme-150: var(--cf-purple-150);
+    --cf-theme-200: var(--cf-purple-200);
+    --cf-theme-300: var(--cf-purple-300);
+    --cf-theme-400: var(--cf-purple-400);
+    --cf-theme-500: var(--cf-purple-500);
+    --cf-theme-600: var(--cf-purple-600);
+    --cf-theme-700: var(--cf-purple-700);
+    --cf-theme-800: var(--cf-purple-800);
+    --cf-theme-850: var(--cf-purple-850);
+    --cf-theme-900: var(--cf-purple-900);
+    --cf-theme-light: var(--cf-purple-100);
+    --cf-theme-dark: var(--cf-purple-850);
+    --cf-theme-title: var(--cf-purple-600);
+    --cf-theme-title-font: var(--cf-purple-title-font);
+    --cf-theme-body-font: var(--cf-purple-body-font);
+}
+
+[data-cf-theme="pink"] {
+    --cf-theme-core: var(--cf-pink-core);
+    --cf-theme-100: var(--cf-pink-100);
+    --cf-theme-150: var(--cf-pink-150);
+    --cf-theme-200: var(--cf-pink-200);
+    --cf-theme-300: var(--cf-pink-300);
+    --cf-theme-400: var(--cf-pink-400);
+    --cf-theme-500: var(--cf-pink-500);
+    --cf-theme-600: var(--cf-pink-600);
+    --cf-theme-700: var(--cf-pink-700);
+    --cf-theme-800: var(--cf-pink-800);
+    --cf-theme-850: var(--cf-pink-850);
+    --cf-theme-900: var(--cf-pink-900);
+    --cf-theme-light: var(--cf-pink-100);
+    --cf-theme-dark: var(--cf-pink-850);
+    --cf-theme-title: var(--cf-pink-600);
+    --cf-theme-title-font: var(--cf-pink-title-font);
+    --cf-theme-body-font: var(--cf-pink-body-font);
+}
+
+[data-cf-theme="red"] {
+    --cf-theme-core: var(--cf-red-core);
+    --cf-theme-100: var(--cf-red-100);
+    --cf-theme-150: var(--cf-red-150);
+    --cf-theme-200: var(--cf-red-200);
+    --cf-theme-300: var(--cf-red-300);
+    --cf-theme-400: var(--cf-red-400);
+    --cf-theme-500: var(--cf-red-500);
+    --cf-theme-600: var(--cf-red-600);
+    --cf-theme-700: var(--cf-red-700);
+    --cf-theme-800: var(--cf-red-800);
+    --cf-theme-850: var(--cf-red-850);
+    --cf-theme-900: var(--cf-red-900);
+    --cf-theme-light: var(--cf-red-100);
+    --cf-theme-dark: var(--cf-red-850);
+    --cf-theme-title: var(--cf-red-600);
+    --cf-theme-title-font: var(--cf-red-title-font);
+    --cf-theme-body-font: var(--cf-red-body-font);
+}
+
+[data-cf-theme="orange"] {
+    --cf-theme-core: var(--cf-orange-core);
+    --cf-theme-100: var(--cf-orange-100);
+    --cf-theme-150: var(--cf-orange-150);
+    --cf-theme-200: var(--cf-orange-200);
+    --cf-theme-300: var(--cf-orange-300);
+    --cf-theme-400: var(--cf-orange-400);
+    --cf-theme-500: var(--cf-orange-500);
+    --cf-theme-600: var(--cf-orange-600);
+    --cf-theme-700: var(--cf-orange-700);
+    --cf-theme-800: var(--cf-orange-800);
+    --cf-theme-850: var(--cf-orange-850);
+    --cf-theme-900: var(--cf-orange-900);
+    --cf-theme-light: var(--cf-orange-100);
+    --cf-theme-dark: var(--cf-orange-850);
+    --cf-theme-title: var(--cf-orange-600);
+    --cf-theme-title-font: var(--cf-orange-title-font);
+    --cf-theme-body-font: var(--cf-orange-body-font);
+}
+
+[data-cf-theme="yellow"] {
+    --cf-theme-core: var(--cf-yellow-core);
+    --cf-theme-100: var(--cf-yellow-100);
+    --cf-theme-150: var(--cf-yellow-150);
+    --cf-theme-200: var(--cf-yellow-200);
+    --cf-theme-300: var(--cf-yellow-300);
+    --cf-theme-400: var(--cf-yellow-400);
+    --cf-theme-500: var(--cf-yellow-500);
+    --cf-theme-600: var(--cf-yellow-600);
+    --cf-theme-700: var(--cf-yellow-700);
+    --cf-theme-800: var(--cf-yellow-800);
+    --cf-theme-850: var(--cf-yellow-850);
+    --cf-theme-900: var(--cf-yellow-900);
+    --cf-theme-light: var(--cf-yellow-100);
+    --cf-theme-dark: var(--cf-yellow-850);
+    --cf-theme-title: var(--cf-yellow-600);
+    --cf-theme-title-font: var(--cf-yellow-title-font);
+    --cf-theme-body-font: var(--cf-yellow-body-font);
+}
+
+[data-cf-theme="green"] {
+    --cf-theme-core: #198754;
+    --cf-theme-100: hsl(152, 38%, 95%);
+    --cf-theme-150: hsl(152, 38%, 90%);
+    --cf-theme-200: hsl(152, 38%, 85%);
+    --cf-theme-300: hsl(152, 38%, 75%);
+    --cf-theme-400: hsl(152, 38%, 65%);
+    --cf-theme-500: hsl(152, 38%, 55%);
+    --cf-theme-600: hsl(152, 38%, 45%);
+    --cf-theme-700: hsl(152, 38%, 35%);
+    --cf-theme-800: hsl(152, 38%, 25%);
+    --cf-theme-850: hsl(152, 38%, 20%);
+    --cf-theme-900: hsl(152, 38%, 15%);
+    --cf-theme-light: var(--cf-green-100);
+    --cf-theme-dark: var(--cf-green-850);
+    --cf-theme-title: var(--cf-green-600);
+    --cf-theme-title-font: var(--cf-green-title-font);
+    --cf-theme-body-font: var(--cf-green-body-font);
+}
+
+[data-cf-theme="teal"] {
+    --cf-theme-core: var(--cf-teal-core);
+    --cf-theme-100: var(--cf-teal-100);
+    --cf-theme-150: var(--cf-teal-150);
+    --cf-theme-200: var(--cf-teal-200);
+    --cf-theme-300: var(--cf-teal-300);
+    --cf-theme-400: var(--cf-teal-400);
+    --cf-theme-500: var(--cf-teal-500);
+    --cf-theme-600: var(--cf-teal-600);
+    --cf-theme-700: var(--cf-teal-700);
+    --cf-theme-800: var(--cf-teal-800);
+    --cf-theme-850: var(--cf-teal-850);
+    --cf-theme-900: var(--cf-teal-900);
+    --cf-theme-light: var(--cf-teal-100);
+    --cf-theme-dark: var(--cf-teal-850);
+    --cf-theme-title: var(--cf-teal-600);
+    --cf-theme-title-font: var(--cf-teal-title-font);
+    --cf-theme-body-font: var(--cf-teal-body-font);
+}
+
+[data-cf-theme="cyan"] {
+    --cf-theme-core: var(--cf-cyan-core);
+    --cf-theme-100: var(--cf-cyan-100);
+    --cf-theme-150: var(--cf-cyan-150);
+    --cf-theme-200: var(--cf-cyan-200);
+    --cf-theme-300: var(--cf-cyan-300);
+    --cf-theme-400: var(--cf-cyan-400);
+    --cf-theme-500: var(--cf-cyan-500);
+    --cf-theme-600: var(--cf-cyan-600);
+    --cf-theme-700: var(--cf-cyan-700);
+    --cf-theme-800: var(--cf-cyan-800);
+    --cf-theme-850: var(--cf-cyan-850);
+    --cf-theme-900: var(--cf-cyan-900);
+    --cf-theme-light: var(--cf-cyan-100);
+    --cf-theme-dark: var(--cf-cyan-850);
+    --cf-theme-title: var(--cf-cyan-600);
+    --cf-theme-title-font: var(--cf-cyan-title-font);
+    --cf-theme-body-font: var(--cf-cyan-body-font);
+}
+
+[data-cf-theme="gray"] {
+    --cf-theme-core: var(--cf-gray-core);
+    --cf-theme-100: var(--cf-gray-100);
+    --cf-theme-150: var(--cf-gray-150);
+    --cf-theme-200: var(--cf-gray-200);
+    --cf-theme-300: var(--cf-gray-300);
+    --cf-theme-400: var(--cf-gray-400);
+    --cf-theme-500: var(--cf-gray-500);
+    --cf-theme-600: var(--cf-gray-600);
+    --cf-theme-700: var(--cf-gray-700);
+    --cf-theme-800: var(--cf-gray-800);
+    --cf-theme-850: var(--cf-gray-850);
+    --cf-theme-900: var(--cf-gray-900);
+    --cf-theme-light: var(--cf-gray-100);
+    --cf-theme-dark: var(--cf-gray-850);
+    --cf-theme-title: var(--cf-gray-600);
+    --cf-theme-title-font: var(--cf-gray-title-font);
+    --cf-theme-body-font: var(--cf-gray-body-font);
+}
+
+[data-cf-theme="modern-trust"] {
+    --cf-theme-core: var(--cf-modern-trust-core);
+    --cf-theme-100: var(--cf-modern-trust-100);
+    --cf-theme-150: var(--cf-modern-trust-150);
+    --cf-theme-200: var(--cf-modern-trust-200);
+    --cf-theme-300: var(--cf-modern-trust-300);
+    --cf-theme-400: var(--cf-modern-trust-400);
+    --cf-theme-500: var(--cf-modern-trust-500);
+    --cf-theme-600: var(--cf-modern-trust-600);
+    --cf-theme-700: var(--cf-modern-trust-700);
+    --cf-theme-800: var(--cf-modern-trust-800);
+    --cf-theme-850: var(--cf-modern-trust-850);
+    --cf-theme-900: var(--cf-modern-trust-900);
+    --cf-theme-light: var(--cf-modern-trust-100);
+    --cf-theme-dark: var(--cf-modern-trust-850);
+    --cf-theme-title: var(--cf-modern-trust-600);
+    --cf-theme-title-font: var(--cf-modern-trust-title-font);
+    --cf-theme-body-font: var(--cf-modern-trust-body-font);
+}
+
+[data-cf-theme="tech-sleek"] {
+    --cf-theme-core: var(--cf-tech-sleek-core);
+    --cf-theme-100: var(--cf-tech-sleek-100);
+    --cf-theme-150: var(--cf-tech-sleek-150);
+    --cf-theme-200: var(--cf-tech-sleek-200);
+    --cf-theme-300: var(--cf-tech-sleek-300);
+    --cf-theme-400: var(--cf-tech-sleek-400);
+    --cf-theme-500: var(--cf-tech-sleek-500);
+    --cf-theme-600: var(--cf-tech-sleek-600);
+    --cf-theme-700: var(--cf-tech-sleek-700);
+    --cf-theme-800: var(--cf-tech-sleek-800);
+    --cf-theme-850: var(--cf-tech-sleek-850);
+    --cf-theme-900: var(--cf-tech-sleek-900);
+    --cf-theme-light: var(--cf-tech-sleek-100);
+    --cf-theme-dark: var(--cf-tech-sleek-850);
+    --cf-theme-title: var(--cf-tech-sleek-600);
+    --cf-theme-title-font: var(--cf-tech-sleek-title-font);
+    --cf-theme-body-font: var(--cf-tech-sleek-body-font);
+}
+
+[data-cf-theme="financial-clarity"] {
+    --cf-theme-core: var(--cf-financial-clarity-core);
+    --cf-theme-100: var(--cf-financial-clarity-100);
+    --cf-theme-150: var(--cf-financial-clarity-150);
+    --cf-theme-200: var(--cf-financial-clarity-200);
+    --cf-theme-300: var(--cf-financial-clarity-300);
+    --cf-theme-400: var(--cf-financial-clarity-400);
+    --cf-theme-500: var(--cf-financial-clarity-500);
+    --cf-theme-600: var(--cf-financial-clarity-600);
+    --cf-theme-700: var(--cf-financial-clarity-700);
+    --cf-theme-800: var(--cf-financial-clarity-800);
+    --cf-theme-850: var(--cf-financial-clarity-850);
+    --cf-theme-900: var(--cf-financial-clarity-900);
+    --cf-theme-light: var(--cf-financial-clarity-100);
+    --cf-theme-dark: var(--cf-financial-clarity-850);
+    --cf-theme-title: var(--cf-financial-clarity-600);
+    --cf-theme-title-font: var(--cf-financial-clarity-title-font);
+    --cf-theme-body-font: var(--cf-financial-clarity-body-font);
+}
+
+[data-cf-theme="neon-noir"] {
+    --cf-theme-core: var(--cf-neon-noir-core);
+    --cf-theme-100: var(--cf-neon-noir-100);
+    --cf-theme-150: var(--cf-neon-noir-150);
+    --cf-theme-200: var(--cf-neon-noir-200);
+    --cf-theme-300: var(--cf-neon-noir-300);
+    --cf-theme-400: var(--cf-neon-noir-400);
+    --cf-theme-500: var(--cf-neon-noir-500);
+    --cf-theme-600: var(--cf-neon-noir-600);
+    --cf-theme-700: var(--cf-neon-noir-700);
+    --cf-theme-800: var(--cf-neon-noir-800);
+    --cf-theme-850: var(--cf-neon-noir-850);
+    --cf-theme-900: var(--cf-neon-noir-900);
+    --cf-theme-light: var(--cf-neon-noir-100);
+    --cf-theme-dark: var(--cf-neon-noir-850);
+    --cf-theme-title: var(--cf-neon-noir-600);
+    --cf-theme-title-font: var(--cf-neon-noir-title-font);
+    --cf-theme-body-font: var(--cf-neon-noir-body-font);
+}
+
+
+a {
+    color: var(--cf-theme-500);
+}
+
+a:hover {
+    color: var(--cf-theme-300);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--cf-theme-600);
+    --bs-btn-border-color: var(--cf-theme-600);
+    --bs-btn-hover-bg: var(--cf-theme-700);
+    --bs-btn-hover-border-color: var(--cf-theme-700);
+    --bs-btn-active-bg: var(--cf-theme-800);
+    --bs-btn-active-border-color: var(--cf-theme-800);
+    --bs-btn-disabled-bg: var(--cf-theme-600);
+    --bs-btn-disabled-border-color: var(--cf-theme-600);
+}
+
+.btn-dark {
+    --bs-btn-bg: var(--cf-theme-850);
+    --bs-btn-border-color: var(--cf-theme-850);
+    --bs-btn-hover-bg: var(--cf-theme-800);
+    --bs-btn-hover-border-color: var(--cf-theme-800);
+    --bs-btn-active-bg: var(--cf-theme-700);
+    --bs-btn-active-border-color: var(--cf-theme-700);
+    --bs-btn-disabled-bg: var(--cf-theme-850);
+    --bs-btn-disabled-border-color: var(--cf-theme-850);
+}
+
+.btn-light {
+    --bs-btn-bg: var(--cf-theme-100);
+    --bs-btn-border-color: var(--cf-theme-100);
+    --bs-btn-hover-bg: var(--cf-theme-150);
+    --bs-btn-hover-border-color: var(--cf-theme-150);
+    --bs-btn-active-bg: var(--cf-theme-200);
+    --bs-btn-active-border-color: var(--cf-theme-200);
+    --bs-btn-disabled-bg: var(--cf-theme-100);
+    --bs-btn-disabled-border-color: var(--cf-theme-100);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--cf-theme-850);
+    font-family: var(--cf-theme-title-font);    
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--cf-theme-850);
+    font-family: var(--cf-theme-title-font);
+}
+
+table.table-custom {
+    --bs-table-bg: var(--cf-theme-100);
+    --bs-table-striped-bg: var(--cf-theme-150);
+    --bs-table-striped-color: var(--cf-theme-dark);
+    --bs-table-active-bg: var(--cf-theme-200);
+    --bs-table-active-color: var(--cf-theme-dark);
+    --bs-table-hover-bg: var(--cf-theme-150);
+    --bs-table-hover-color: var(--cf-theme-dark);
+    color: var(--cf-theme-dark);
+    border-color: var(--cf-theme-600);
+}
+
+table.table-custom th {
+    color: var(--cf-theme-850);
+    border-bottom: 2px solid var(--cf-theme-700);
+}
