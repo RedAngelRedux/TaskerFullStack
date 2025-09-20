@@ -99,18 +99,28 @@
         }
     }
 
-    private async Task SaveListAsync()
-    {
-        //string? taskerItemsJson = JsonSerializer.Serialize(taskerItems);
-        //await JS.InvokeVoidAsync("localStorage.setItem", "taskerList", taskerItemsJson); 
-        await inputText!.Element!.Value.FocusAsync();
+    // private async Task SaveListAsync()
+    // {
+    //     //string? taskerItemsJson = JsonSerializer.Serialize(taskerItems);
+    //     //await JS.InvokeVoidAsync("localStorage.setItem", "taskerList", taskerItemsJson); 
+    //     await inputText!.Element!.Value.FocusAsync();
 
-    }
+    // }
 
     private async Task DeleteTask(TaskerItem item)
     {
-        //taskerItems.Remove(item);
-        await SaveListAsync(); // Save the updated list to local storage
+        try
+        {
+            string route = $"/api/TaskerItem/{item.Id}";
+            HttpResponseMessage response = await Http.DeleteAsync(route);
+            response.EnsureSuccessStatusCode();
+
+            await LoadListAsync();
+        }
+        catch
+        {
+            throw;
+        }
     }
 
 
@@ -129,6 +139,6 @@
         {
             throw;
         }
-        await SaveListAsync(); // Save the updated list to local storage
+        //await SaveListAsync(); // Save the updated list to local storage
     }
 }

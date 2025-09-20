@@ -37,20 +37,36 @@ public class TaskerItemController(
         _db.TaskerItems.Add(dbTaskerItem);
         await _db.SaveChangesAsync();
 
-        return Ok();
+        // This is REST compliant
+        return CreatedAtAction("GetTaskerItem", new {id = dbTaskerItem.Id, dbTaskerItem});
     }
 
     // get:  api/TaskerItems
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TaskerItem>>> GetDbTaskerItems()
+    public async Task<ActionResult<IEnumerable<TaskerItem>>> GetTaskerItems()
     {
         List<DbTaskerItem> items = await _db.TaskerItems.Where(t => t.UserId == CurrentUserId).ToListAsync();
         return items;
     }
 
+    // get:  api/TaskerItems/5
+    [HttpGet("{id}")]
+    public async Task<ActionResult<TaskerItem>> GetTaskerItem([FromRoute] Guid id)
+    {
+        DbTaskerItem? dbTaskerItem = await _db.TaskerItems.FirstOrDefaultAsync(t => t.Id == id && t.UserId == CurrentUserId) ;
+        if(dbTaskerItem == null)
+        {
+            return NotFound();
+        }
+        else
+        {
+            return dbTaskerItem;
+        }
+    }
+
     // put:  api/TaskerItems/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutDbTaskerItem([FromRoute] Guid id, [FromBody] TaskerItem taskerItem)
+    public async Task<ActionResult> PutDbTaskerItem([FromRoute] Guid id, [FromBody] TaskerItem taskerItem)
     {
         // Validate id; must match taskerItem & exists in Db
         if (id != taskerItem.Id) return BadRequest();
@@ -65,6 +81,25 @@ public class TaskerItemController(
         await _db.SaveChangesAsync();
 
         return NoContent();
+    }
+
+    // delete:  api/TaskerItems/5
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeleteTaskerItem([FromRoute] Guid id)
+    {
+        // Validate id; exists in Db
+        DbTaskerItem? dbTaskerItem = await _db.TaskerItems.FirstOrDefaultAsync(t => t.Id == id && t.UserId == CurrentUserId);
+        
+        if (dbTaskerItem == null) {
+            return NotFound();
+        }
+        else
+        {
+            _db.TaskerItems.Remove(dbTaskerItem);
+            await _db.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 
 
