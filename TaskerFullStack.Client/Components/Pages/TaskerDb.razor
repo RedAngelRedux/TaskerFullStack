@@ -1,0 +1,105 @@
+﻿@page "/TaskerDb"
+
+@rendermode InteractiveWebAssembly
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+
+@inject IJSRuntime JS;
+
+<div class="d-flex align-items.center justify-content-center mt-5">
+    <div class="task p-5">
+        <div class="p-2 text-center mb-3">
+            <img src="/img/mw1920_image.png" width="300" alt="Tasker Logo" class="img-fluid mb-3" />
+        </div>
+        <div>
+            <EditForm Model="taskerItem" OnValidSubmit="AddTask">
+                <DataAnnotationsValidator />
+                <div class="d-flex flex-row gap-2">
+                    <InputText @ref=inputText class="form-control" placeholder="Enter a task" @bind-Value=taskerItem.Name />
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+                <div>
+                    <ValidationMessage For="() => taskerItem.Name"" />
+                </div>
+            </EditForm>
+        </div>
+        <hr />
+        <div class="vstack">
+            @foreach (var item in taskerItems)
+            {
+                <TaskerLine Item="item" OnDeleteCallBack="DeleteTask" OnCompleteCallBack="CompleteTask" />
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private TaskerItem taskerItem = new();
+    private List<TaskerItem> taskerItems = [];
+    private InputText? inputText { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            //await JS.InvokeVoidAsync("console.log", "Tasker component initialized.");
+            await inputText!.Element!.Value.FocusAsync(); // Focus the input field after the component has rendered
+            await LoadListAsync(); // Load the task list from local storage when the component is initialized
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadListAsync()
+    {
+        try
+        {
+            // Load the task list from local storage when the component is initialized
+            string? taskerItemsJson = await JS.InvokeAsync<string>("localStorage.getItem", "taskerList") ?? "[]";
+            ;
+            if (!string.IsNullOrEmpty(taskerItemsJson))
+            {
+                taskerItems = JsonSerializer.Deserialize<List<TaskerItem>>(taskerItemsJson) ?? [];
+            }
+        }
+        catch (Exception)
+        {
+            taskerItems = [];
+            await SaveListAsync(); // Ensure we save an empty list if loading fails
+        }
+    }
+
+    private async Task AddTask()
+    {
+        if (!string.IsNullOrWhiteSpace(taskerItem.Name))
+        {
+            taskerItems.Add(new TaskerItem { Name = taskerItem.Name, Id = Guid.NewGuid()});
+            taskerItem = new TaskerItem(); // Reset the input field
+            await SaveListAsync(); // Save the updated list to local storage
+        }
+    }
+
+    private async Task SaveListAsync()
+    {
+        string? taskerItemsJson = JsonSerializer.Serialize(taskerItems);
+        await JS.InvokeVoidAsync("localStorage.setItem", "taskerList", taskerItemsJson); 
+        await inputText!.Element!.Value.FocusAsync();
+
+    }
+
+    private async Task DeleteTask(TaskerItem item)
+    {
+        taskerItems.Remove(item);
+        await SaveListAsync(); // Save the updated list to local storage
+    }
+
+
+    private async Task CompleteTask(TaskerItem item)
+    {
+        await SaveListAsync(); // Save the updated list to local storage
+    }
+}
